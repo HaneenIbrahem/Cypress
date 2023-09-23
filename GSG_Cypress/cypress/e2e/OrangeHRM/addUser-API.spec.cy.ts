@@ -1,4 +1,4 @@
-import LoginPage from '../../pageObjects/loginPage'
+import LoginPage from '../../support/pageObjects/loginPage'
 
 const loginObj : LoginPage = new LoginPage();
 let random:Number=(Math.random()*1000)
@@ -8,6 +8,7 @@ describe("Visit orangeHRM", () => {
         cy.visit("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         loginObj.login("Admin", "admin123");
     })
+    
     //API
     // it("Verify locations response", () => {
     //     cy.request('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login').then((response) => {

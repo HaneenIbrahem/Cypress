@@ -1,5 +1,5 @@
-import AddEmployee from '../../pageObjects/addEmployee'
-import LoginPage from '../../pageObjects/loginPage'
+import AddEmployee from '../../support/pageObjects/addEmployeeUI'
+import LoginPage from '../../support/pageObjects/loginPage'
 
 const loginObj : LoginPage = new LoginPage();
 const addEmp : AddEmployee = new AddEmployee();
@@ -16,8 +16,4 @@ describe("add employee", () => {
     it("Add new employee", () => {
         addEmp.addNewEmployee(`Haneen${random}`, "M", "Ibrahem", `HaneenIbrahem${random}`, "haneen123", "haneen123");
     })
-
-    // it("", () => {
-    //     addEmp.searchEmployee([{ key: 'Id', value: '12345' }]);
-    // })
 })

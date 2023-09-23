@@ -1,0 +1,34 @@
+{
+    "fullName":{
+            "firstAndMiddleName":"Haneen M",
+            "lastName":"Ibrahem"
+    },
+    "Personal_Details":{
+        "Nickname": "henno", 
+        "Driver_License_Number": "DL123456789", 
+        "License_Expiry_Date": "2024-08-15", 
+        "SSN_Number": "400255789", 
+        "SIN_Number": "123456789", 
+        "Nationality": "Lebanese", 
+        "Marital_Status": "Married", 
+        "Date_of_Birth": "2009-09-09", 
+        "Gender": "Male", 
+        "Smoker": "Smoker"
+    },
+
+    "Job_Details":{
+        "Joined_Date": "2023-06-10",
+        "Job_Title": "Account Assistant",
+        "Job_Category": "Service Workers",
+        "Sub_Unit": "Engineering",
+        "Location": "New York Sales Office",
+        "Employment_Status": "Full-Time Contract"
+    },
+
+    "Report_to":{
+        "Name": "Odis Adalwin",
+        "Reporting_Method": "Indirect"
+
+    }
+
+}

@@ -1,0 +1,27 @@
+{
+    "valid": {
+       "name": "Admin",
+       "password": "admin123",
+       "message": "Dashboard"
+    },
+    "invalid": {
+       "name": "Admin3",
+       "password": "dmin123",
+       "message": "Invalid credentials"
+    },
+    "allEmpty": {
+       "name": "",
+       "password": "",
+       "message": "Required"
+    },
+    "userEmpty": {
+       "name": "",
+       "password": "admin123",
+       "message": "Required"
+    },
+    "passwordEmpty": {
+       "name": "Admin",
+       "password": "",
+       "message": "Required"
+    }
+ }
