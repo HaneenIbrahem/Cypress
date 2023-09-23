@@ -14,32 +14,33 @@ describe("Visit orangeHRM", () => {
         cy.visit("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         loginObj.login("Admin", "admin123");
 
-        
+        cy.request({
+          method: 'POST',
+          url: '/web/index.php/api/v2/admin/users', 
+          body: {
+            username: `HaneenIbrahem${random}`, 
+            password: "haneen123", 
+            status: true, 
+            userRoleId: 2, 
+            empNumber: 85
+        }
+        }).then((response) => {
+          expect(response).property('status').to.eq(200); 
+          const{firstName, middleName, lastName, empNumber} = response.body.data.employee;
+          const employeeName = `${firstName} ${lastName}` 
+          employeeFullName = `${firstName} ${middleName} ${lastName}` 
+          const employeePageUrl = `https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewPersonalDetails/empNumber/${empNumber}`;
+          console.log(response)
+          cy.visit(employeePageUrl);
+          cy.contains(employeeName).should('exist');
+          
+        });
     })
     // test to search by name
-    it("search user", () => {
-      cy.request({
-        method: 'POST',
-        url: '/web/index.php/api/v2/admin/users', 
-        body: {
-          username: `HaneenIbrahem${random}`, 
-          password: "haneen123", 
-          status: true, 
-          userRoleId: 2, 
-          empNumber: 67
-      }
-      }).then((response) => {
-        expect(response).property('status').to.eq(200); 
-        const{firstName, middleName, lastName, empNumber} = response.body.data.employee;
-        const employeeName = `${firstName} ${lastName}` 
-        employeeFullName = `${firstName} ${middleName} ${lastName}` 
-        const employeePageUrl = `https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewPersonalDetails/empNumber/${empNumber}`;
-        console.log(response)
-        cy.visit(employeePageUrl);
-        cy.contains(employeeName).should('exist');
-        
-      });
-    });
+    // it("search user", () => {
+    //   cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewEmployeeList')
+    //   addEmpObj.searchEmployee(employeeFullName)
+    // });
     
     //search
     // const searchFields = [
