@@ -7,6 +7,8 @@ const addEmpObj: AddEmployee = new AddEmployee();
 // let random: Number 
 let employeeFullName: string
 let employeeId: number
+let firstAndMiddleName: string
+let lastname: string
 
 describe("Visit orangeHRM", () => {
 
@@ -32,6 +34,8 @@ describe("Visit orangeHRM", () => {
       console.log(employeeId)
       const employeeName = `${firstName} ${lastName}`
       employeeFullName = `${firstName} ${middleName} ${lastName}`
+      firstAndMiddleName = `${firstName} ${middleName}`
+      lastname = `${lastName}`
       const employeePageUrl = `https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewPersonalDetails/empNumber/${empNumber}`;
       cy.visit(employeePageUrl);
       cy.contains(employeeName).should('exist');
@@ -83,8 +87,8 @@ describe("Visit orangeHRM", () => {
     cy.get('@data').then((infoData: any) => {
       addEmpObj.searchEmployee(
         employeeId,
-        infoData.fullName.firstAndMiddleName,
-        infoData.fullName.lastName,
+        firstAndMiddleName,
+        lastname,
         infoData.Job_Details.Job_Title,
         infoData.Job_Details.Employment_Status,
         infoData.Job_Details.Sub_Unit,
