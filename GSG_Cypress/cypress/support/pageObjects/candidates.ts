@@ -13,6 +13,8 @@ class Candidates {
         InterviewTitleInput: () => cy.get('label:contains("Interview Title")').parents('.oxd-input-group').find('input'),
         Interviewer: () => cy.get('.oxd-autocomplete-text-input input[data-v-75e744cd]'),
         DateInput: () => cy.get('.oxd-date-input input[data-v-1f99f73c]'),
+        saveBTN: () => cy.get('.oxd-button--secondary'),
+        status: () => cy.get('.orangehrm-recruitment-status'),
     }
 
     candidateCount() {
@@ -72,14 +74,16 @@ class Candidates {
         });
     }
 
-    scheduleInterview(){
+    scheduleInterview(InterviewTitle: string, interviewer: string, date: string){
         this.elements.scheduleInterviewBTN().click({force: true});
-        this.elements.InterviewTitleInput().type("hihihi")
-        this.elements.Interviewer().type('Lisa  Andrews')
+        this.elements.InterviewTitleInput().type(InterviewTitle)
+        this.elements.Interviewer().type(interviewer)
             cy.contains('.oxd-autocomplete-option', 'Searching....').should('exist');
             cy.contains('.oxd-autocomplete-option', 'Searching....').should('not.exist');
             cy.get('.oxd-autocomplete-option').should('be.visible').click({ force: true })
-        this.elements.DateInput().clear().type('2023-10-15');
+        this.elements.DateInput().clear().type(date)
+        this.elements.saveBTN().click()
+        this.elements.status().should('contain', 'Status: Interview Scheduled')
         
     }
 

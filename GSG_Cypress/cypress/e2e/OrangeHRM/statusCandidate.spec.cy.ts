@@ -18,7 +18,7 @@ describe("Login Home Page", () => {
     it("candidate count",()=>{
         count.addNewCandidateViaAPI("no comment", false, '0123456789', "2023-10-14", "hh@hh.hh", "haneen", "hi", "Ibrahem", "MMM", 8)
         count.shortlistCandidate("init note")
-        count.scheduleInterview()
+        count.scheduleInterview('first Interview', 'Lisa  Andrews', '2023-10-15')
         
     })
 
