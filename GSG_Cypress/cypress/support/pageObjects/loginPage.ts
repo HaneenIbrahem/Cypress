@@ -2,15 +2,18 @@ import { should } from "chai";
 
 export default class loginPage{
     elements = {
-        // userName: () => cy.get('[placeholder = "Username"]'),
-        // password: () => cy.get('[placeholder = "Password"]'),
-        userName: () => cy.getByPlaceholder("Username"),
-        password: () => cy.getByPlaceholder("Password"),
+        userName: () => cy.get('[placeholder = "Username"]'),
+        password: () => cy.get('[placeholder = "Password"]'),
+        // userName: () => cy.getByPlaceholder("Username"),
+        // password: () => cy.getByPlaceholder("Password"),
         loginBtn: () => cy.get('button'),
         forgetPassword: () => cy.get('.orangehrm-login-forgot'),
         resetUserName: () => cy.get('[placeholder = "Username"]'),
         forgetBtn: () => cy.get('[type = "submit"]'),
-        message: () => cy.get('.orangehrm-forgot-password-title')
+        message: () => cy.get('.orangehrm-forgot-password-title'),
+
+        //logout
+        logout: () => cy.get('.oxd-userdropdown-name'),
 
     }
 
@@ -24,6 +27,10 @@ export default class loginPage{
         this.elements.resetUserName().type(resetPassword);
         this.elements.forgetBtn().click(); 
         this.elements.message().should('contain', message);
+    }
+    logout(){
+        this.elements.logout().click({ force: true })
+        cy.contains('Logout').click({ force: true })
     }
    
 }

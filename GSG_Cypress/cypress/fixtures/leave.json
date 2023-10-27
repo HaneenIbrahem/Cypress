@@ -1,0 +1,13 @@
+{
+    "requestLeave":
+    {
+      "comment": "no comment",
+      "duration": {"type": "half_day_morning"},
+      "fromDate": "2023-10-30",
+      "leaveTypeId": 9,
+      "partialOption": "all",
+      "toDate": "2023-10-31"
+      }
+      
+}
+
