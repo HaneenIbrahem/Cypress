@@ -29,6 +29,14 @@
         "Name": "Odis Adalwin",
         "Reporting_Method": "Indirect"
 
+    },
+
+    "addEmployee":{
+        "firstName": "Haneen",
+        "middleName": "M",
+        "lastName": "Ibrahem",
+        "empPicture": null,
+        "employeeId": "0654"
     }
 
 }
