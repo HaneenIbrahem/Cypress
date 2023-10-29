@@ -1,8 +1,10 @@
 import LoginPage from '../../support/pageObjects/loginPage'
+import BuzzPage from '../../support/pageObjects/buzz'
 
 const loginObj: LoginPage = new LoginPage();
+const buzzObj: BuzzPage = new BuzzPage();
 
-describe("write on file then post a comment", () => {
+describe("write on file then add new post", () => {
 
 
     beforeEach( () => {
@@ -10,17 +12,16 @@ describe("write on file then post a comment", () => {
       cy.visit("/web/index.php/auth/login");
       loginObj.login("Admin", "admin123");
 
-      cy.get('.oxd-sidepanel-body').contains('Buzz').click();
+      buzzObj.Buzz();
       cy.writeFile('cypress/fixtures/file.txt', 'hello !!!');
 
     })
 
-    it("post anew comment", () => {
+    it("add new post", () => {
         cy.fixture('file.txt').then((postText) => {
-            cy.get('.oxd-buzz-post-input').type(postText);
-            cy.get('.oxd-buzz-post-slot > .oxd-button').click({force: true});
+            buzzObj.NewPost(postText);
           });
-        cy.contains('hello !');
+        cy.contains('hello !!!');
       })
     
 
