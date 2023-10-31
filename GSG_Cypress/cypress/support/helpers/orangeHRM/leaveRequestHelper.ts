@@ -12,6 +12,7 @@ export const URLs = {
 }
 
 export function login(username: string, password: string) {
+  cy.visit("/web/index.php/auth/login");
     loginObj.login(username, password);
   }
 
@@ -39,12 +40,14 @@ export function requestLeave(comment: string, duration:any, fromDate: string, le
 
 
 
-export function approveReject(){
+export function approveOrRejectLeave(action: string){
   cy.request({
       method: 'PUT',
       url: `${baseUrl}/web/index.php/api/v2/leave/employees/leave-requests/${leaveId}`,
       body: {
-        action: "APPROVE"
+        action: action
       }
     })
 }
+
+

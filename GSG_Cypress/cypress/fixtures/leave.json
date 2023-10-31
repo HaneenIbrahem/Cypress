@@ -7,7 +7,23 @@
       "leaveTypeId": 9,
       "partialOption": "all",
       "toDate": "2023-10-31"
-      }
+      },
+
+      "addVacancy": 
+      {
+        "name": "vacancy",
+        "jobTitleId": 10,
+        "numOfPositions": null,
+        "description": "",
+        "status": true,
+        "isPublished": true
+      },
+      "leaveEntitlements":
+         {
+          "leaveTypeId": 9,
+          "fromDate": "2023-01-01",
+          "entitlement": "20"
+        }
       
 }
 
